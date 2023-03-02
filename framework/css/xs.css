@@ -1,0 +1,10 @@
+/* 字体样式 */
+@import url("https://fonts.googleapis.com/css?family=Rubik|Playball|Long Cang|Zhi+Mang+Xing");
+/* zui 1.10.0 */
+@import url("../lib/zui/css/zui.min.css");
+/* 规范样式 */
+@import url("normalize.css");
+/* colorUi */
+@import url("custom.css");
+/* 核心样式 */
+@import url("style.css");
