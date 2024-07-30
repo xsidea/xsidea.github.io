@@ -1,7 +1,8 @@
 /* PC */
 @media (min-width:1920px){
-	
+	.wrapper{margin: 0 9rem;}
 }
+
 /* mobile */
 @media (min-width:768px){
 	

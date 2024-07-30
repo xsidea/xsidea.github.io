@@ -12,20 +12,240 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="author" content="xiaosong<lianghaisong@qq.com">
+	<link rel="stylesheet" type="text/css" href="framework/js/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" type="text/css" href="framework/js/bootstrap/css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="./framework/css/xs.css" />
-	<script src="framework/js/xs/xs.js"></script>
+	<script type="text/javascript" src="framework/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="framework/js/swiper/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="framework/js/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="framework/js/xs/xs.js"></script>
 </head>
 <body>
 	<div id="xs-app">
+		<!--Header-->
 		<div class="xs-header">
-			<div class="logo"></div>
-			<div class="navbar">
-
+			<!--Logo-->
+			<div class="xs-header-left">
+				<div class="logo"><a href=""><img src="framework/images/logo.png" /></a></div>
+			</div>
+			<!--Navbar-->
+			<div class="xs-navbar">
+				<ul>
+					<li><a href="">网站首页</a></li>
+					<li><a href="">关于我们</a></li>
+					<li><a href="">常用案例<i class="icon"></i></a></li>
+					<li><a href="">联系我们</a></li>
+				</ul>
 			</div>
 		</div>
+		<!--Banner-->
 		<div class="xs-banner">
-			
+			<div class="swiper">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide"><img src="framework/images/swiper00.jpg"></div>
+					<div class="swiper-slide"><img src="framework/images/swiper00.jpg"></div>
+					<div class="swiper-slide"><img src="framework/images/swiper00.jpg"></div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
 		</div>
+		<div class="xs-recommend">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col">
+						<div class="recommend-item">
+							<a href="">
+								<div class="recommend-ico"><i class="xsIcon-honor"></i></div>
+								<div class="recommend-main">
+									<h2 class="recommend-title">最新趋势<span class="link">GO</span></h2>
+									<h4 class="recommend-desc">每天来看最新流行趋势</h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="recommend-item">
+							<a href="">
+								<div class="recommend-ico"><i class="xsIcon-fly"></i></div>
+								<div class="recommend-main">
+									<h2 class="recommend-title">成长进阶<span class="link">GO</span></h2>
+									<h4 class="recommend-desc">优秀设计师的成长</h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="recommend-item">
+							<a href="">
+								<div class="recommend-ico"><i class="xsIcon-language"></i></div>
+								<div class="recommend-main">
+									<h2 class="recommend-title">热门资源<span class="link">GO</span></h2>
+									<h4 class="recommend-desc">热门资源一网打尽</h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="recommend-item">
+							<a href="">
+								<div class="recommend-ico"><i class="xsIcon-zujian"></i></div>
+								<div class="recommend-main">
+									<h2 class="recommend-title">设计入门<span class="link">GO</span></h2>
+									<h4 class="recommend-desc">自学免费入门频道</h4>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col">
+						<div class="recommend-item">
+							<a href="">
+								<div class="recommend-ico"><i class="xsIcon-kefu"></i></div>
+								<div class="recommend-main">
+									<h2 class="recommend-title">最佳客服<span class="link">GO</span></h2>
+									<h4 class="recommend-desc">在线客服解答一切疑惑</h4>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Navigation-->
+		<div class="xs-navigation">
+			<div class="container-fluid">
+				<div class="xs-title">
+					<div class="xs-title-txt ">案例展示</div>
+					<div class="xs-title-desc">最新的本地案例展示</div>
+					<div class="xs-title-more"><a href="">更多</a></div>
+				</div>
+				<div class="row">
+					<div class="col-6 col-md-2">
+						<div class="xs-navigation-item">
+							<a href="/pages/magazine/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_magazine.png"></div>
+								<div class="desc">
+									<h2>Turn杂志翻书效果</h2>
+									<p>使用HTML5制作翻书效果</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-2 navigation-item">
+						<div class="xs-navigation-item ">
+							<a href="/pages/qweather/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_weather.png"></div>
+								<div class="desc">
+									<h2>和风天气</h2>
+									<p>创建一个漂亮的天气项目驱动你的业务</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-2 navigation-item">
+						<div class="xs-navigation-item ">
+							<a href="/pages/qweather/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_logo.png"></div>
+								<div class="desc">
+									<h2>和风天气</h2>
+									<p>创建一个漂亮的天气项目驱动你的业务</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-2 navigation-item">
+						<div class="xs-navigation-item ">
+							<a href="/pages/qweather/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_logo.png"></div>
+								<div class="desc">
+									<h2>和风天气</h2>
+									<p>创建一个漂亮的天气项目驱动你的业务</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-2 navigation-item">
+						<div class="xs-navigation-item ">
+							<a href="/pages/qweather/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_logo.png"></div>
+								<div class="desc">
+									<h2>和风天气</h2>
+									<p>创建一个漂亮的天气项目驱动你的业务</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-2 navigation-item">
+						<div class="xs-navigation-item ">
+							<a href="/pages/qweather/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_logo.png"></div>
+								<div class="desc">
+									<h2>和风天气</h2>
+									<p>创建一个漂亮的天气项目驱动你的业务</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="col-6 col-md-2 navigation-item">
+						<div class="xs-navigation-item ">
+							<a href="/pages/qweather/index.html" target="_blank">
+								<div class="ico"><img src="/framework/images/icon_logo.png"></div>
+								<div class="desc">
+									<h2>和风天气</h2>
+									<p>创建一个漂亮的天气项目驱动你的业务</p>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="wrapper">
+				<div class="xs-title">
+					<div class="xs-title-txt ">案例展示</div>
+					<div class="xs-title-desc">最新的本地案例展示</div>
+					<div class="xs-title-more"><a href="">更多</a></div>
+				</div>
+				<div class="navigation-item">
+					<a href="#" target="_blank">
+						<div class="navigation-ico"><img src="nav-iconfont.jpg"></div>
+						<div class="navigation-main">
+							<h2 class="navigation-title">IconFont</h2>
+							<h4 class="navigation-desc">国内最著名的图标搜索及管理平台，超2300万个图标下载</h4>
+						</div>
+					</a>
+				</div>
+				<div class="navigation-item">
+
+				</div>
+				<div class="navigation-item">
+
+				</div>
+				<div class="navigation-item">
+
+				</div>
+				<div class="navigation-item">
+
+				</div>
+				<div class="navigation-item">
+
+				</div>
+			</div> -->
+		</div>
+
 	</div>
+
+
+
+	<div style="height: 5000px;">
+
+	</div>
+
+	<script type="text/javascript">
+		xs.swiper({
+			obj: '.xs-banner .swiper',
+			autoplay: true
+		});
+	</script>
 </body>
 </html>

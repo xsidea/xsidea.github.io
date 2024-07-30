@@ -279,3 +279,4 @@
 .text-gray, .line-gray, .lines-gray {color: #aaaaaa;}
 .text-black, .line-black, .lines-black {color: #333333;}
 .text-white, .line-white, .lines-white {color: #ffffff;}
+.text-overflow{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;display: block;}
