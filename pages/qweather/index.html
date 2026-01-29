@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="utf-8">
+    <title>Xiaosong's Case</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="author" content="xiaosong<lianghaisong@qq.com">
+    <link rel="stylesheet" type="text/css" href="/framework/css/xs.css" />
+    <link rel="stylesheet" type="text/css" href="/framework/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/framework/lib/qweathe/font/qweather-icons.css">
+    <style>
+        .item-box {
+            height: 85px;
+            padding: 0 25px;
+            border-radius: 6px;
+            background-color: #ffffff;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 36px;
+        }
+
+        .item-box .item>p img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .item-box .item>p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 20px;
+            color: #333333;
+            white-space: nowrap;
+        }
+
+        .item-box .item>p:last-child {
+            margin-top: 7px;
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 16px;
+            color: #999999;
+        }
+
+        .weather {
+            position: relative;
+            z-index: 1;
+            height: 350px;
+            margin-bottom: 35px;
+            border-radius: 6px;
+            padding: 30px;
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 20px 36px;
+            background: url('/framework/lib/qweathe/cloudy.png') no-repeat #A5B3C5;
+            background-size: 540px auto;
+            background-repeat: no-repeat;
+            background-position: right top;
+        }
+        .weather .weather-live {
+            position: relative;
+            z-index: 3000;
+            white-space: nowrap;
+        }
+
+        .weather .weather-live .weather-live-item {
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            width: 50%;
+            max-width: 50%;
+        }
+
+        .weather .weather-live .weather-live-item img {
+            display: inline-block;
+            width: 110px;
+            height: 110px;
+
+        }
+
+        .weather .weather-live .weather-live-item>p {
+            font-size: 40px;
+            line-height: 1.1;
+        }
+
+        .weather .weather-live .weather-live-item>p:last-child {
+            text-indent: 10px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .weather .weather-text {
+            position: relative;
+            z-index: 3000;
+            margin: 25px auto;
+            max-width: 510px;
+            min-height: 35px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .weather .item-box {
+            position: relative;
+            z-index: 3000;
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        .weather .item-box .item>p {
+            color: #000000;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 2px 2px rgba(255, 255, 255, .3);
+        }
+
+        .weather .item-box .item>p:last-child {
+            color: #3d3f42;
+            font-size: 12px;
+            font-weight: 100;
+            text-shadow:none
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="xs-app">
+        <div class="xs-header">
+            <div class="xs-header-left">
+                <a href="/"><img src="/framework/images/logo_white.png" class="logo"></a>
+            </div>
+            <div class="slogan"></div>
+            <div class="xs-header-right">
+                <div class="xs-header-nav">
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="xs-title">
+                <div class="xs-title-txt">和风天气</div>
+                <div class="xs-desc">创建一个漂亮的天气项目驱动你的业务</div>
+            </div>
+            <div class="weather">
+                <div class="weather-live">
+                    <div class="weather-live-item text-right">
+                        <img src="/framework/lib/qweathe/png/999.png" />
+                    </div>
+                    <div class="weather-live-item text-left">
+                        <p id="weatherTempMax"></p>
+                        <p id="weatherTextDay"></p>
+                    </div>
+                </div>
+                <div class="weather-text"></div>
+                <div class="item-box flex justify-between align-center margin-top">
+                    <div class="item">
+                        <p id="weatherDate"></p>
+                        <p>日期</p>
+                    </div>
+                    <div class="item">
+                        <p id="weatherHumidity"></p>
+                        <p>相对湿度</p>
+                    </div>
+                    <div class="item">
+                        <p id="weatherUvindex"></p>
+                        <p>紫外线</p>
+                    </div>
+                    <div class="item">
+                        <p id="weatherTemp"></p>
+                        <p>温度&#8451;</p>
+                    </div>
+                    <div class="item">
+                        <p id="weatherVis"></p>
+                        <p>能见度</p>
+                    </div>
+                    <div class="item">
+                        <p id="weatherPrecip"></p>
+                        <p>降水量</p>
+                    </div>
+                    <div class="item">
+                        <p id="weatherPressure"></p>
+                        <p>大气压</p>
+                    </div>
+                </div>
+            </div>
+            <div class="qweather" id="qweather"></div>
+        </div>
+        <!--help-->
+        <div class="wrapper">
+            <table class="table margin-tb table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>描述</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>fxLink</td>
+                        <td>当前数据的响应式页面，便于嵌入网站或应用</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>daily.fxDate </td>
+                        <td>预报日期</td>
+                    </tr>
+                    <tr>
+                        <td>daily.sunrise </td>
+                        <td>日出时间，在高纬度地区可能为空</td>
+                    </tr>
+                    <tr>
+                        <td>daily.sunset </td>
+                        <td>日落时间，在高纬度地区可能为空</td>
+                    </tr>
+                    <tr>
+                        <td>daily.moonrise </td>
+                        <td>当天月升时间，可能为空</td>
+                    </tr>
+                    <tr>
+                        <td>daily.moonset </td>
+                        <td>当天月落时间，可能为空</td>
+                    </tr>
+                    <tr>
+                        <td>daily.moonPhase </td>
+                        <td>月相名称</td>
+                    </tr>
+                    <tr>
+                        <td>daily.moonPhaseIcon </td>
+                        <td>月相图标代码，图标可通过天气状况和图标下载</td>
+                    </tr>
+                    <tr>
+                        <td>daily.tempMax </td>
+                        <td>预报当天最高温度</td>
+                    </tr>
+                    <tr>
+                        <td>daily.tempMin </td>
+                        <td>预报当天最低温度</td>
+                    </tr>
+                    <tr>
+                        <td>daily.iconDay </td>
+                        <td>预报白天天气状况的图标代码，图标可通过天气状况和图标下载</td>
+                    </tr>
+                    <tr>
+                        <td>daily.textDay </td>
+                        <td>预报白天天气状况文字描述，包括阴晴雨雪等天气状态的描述</td>
+                    </tr>
+                    <tr>
+                        <td>daily.iconNight </td>
+                        <td>预报夜间天气状况的图标代码，图标可通过天气状况和图标下载</td>
+                    </tr>
+                    <tr>
+                        <td>daily.textNight </td>
+                        <td>预报晚间天气状况文字描述，包括阴晴雨雪等天气状态的描述</td>
+                    </tr>
+                    <tr>
+                        <td>daily.wind360Day </td>
+                        <td>预报白天风向360角度</td>
+                    </tr>
+                    <tr>
+                        <td>daily.windDirDay </td>
+                        <td>预报白天风向</td>
+                    </tr>
+                    <tr>
+                        <td>daily.windScaleDay</td>
+                        <td> 预报白天风力等级</td>
+                    </tr>
+                    <tr>
+                        <td>daily.windSpeedDay </td>
+                        <td>预报白天风速，公里/小时</td>
+                    </tr>
+                    <tr>
+                        <td>daily.wind360Night </td>
+                        <td>预报夜间风向360角度</td>
+                    </tr>
+                    <tr>
+                        <td>daily.windDirNight </td>
+                        <td>预报夜间当天风向</td>
+                    </tr>
+                    <td>daily.windScaleNight </td>
+                    <td>预报夜间风力等级</td>
+                    </tr>
+                    <tr>
+                        <td>daily.windSpeedNight </td>
+                        <td>预报夜间风速，公里/小时</td>
+                    </tr>
+                    <tr>
+                        <td>daily.precip </td>
+                        <td>预报当天总降水量，默认单位：毫米</td>
+                    </tr>
+                    <tr>
+                        <td>daily.uvIndex </td>
+                        <td>紫外线强度指数</td>
+                    </tr>
+                    <tr>
+                        <td>daily.humidity </td>
+                        <td>相对湿度，百分比数值</td>
+                    </tr>
+                    <tr>
+                        <td>daily.pressure </td>
+                        <td>大气压强，默认单位：百帕</td>
+                    </tr>
+                    <tr>
+                        <td>daily.vis </td>
+                        <td>能见度，默认单位：公里</td>
+                    </tr>
+                    <tr>
+                        <td>daily.cloud </td>
+                        <td>云量，百分比数值。可能为空</td>
+                    </tr>
+                    <tr>
+                        <td>refer.sources </td>
+                        <td>原始数据来源，或数据源说明，可能为空</td>
+                    </tr>
+                    <tr>
+                        <td>refer.license </td>
+                        <td>数据许可或版权声明，可能为空</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="/framework/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/framework/lib/xs/xs.js"></script>
+    <script type="text/javascript" src="./common.js"></script>
+    <script type="text/javascript">
+        qweather.day7(function (res) {
+            var data = res.daily;
+            strHtml = '';
+            $(data).each(function (index, item) {
+                strHtml += '<div class="item-box flex justify-between align-center margin-bottom">';
+                strHtml += '<div class="item"><p>' + item.fxDate + '</p><p>日期</p></div>';
+                strHtml += '<div class="item"><p><img src="/framework/lib/qweathe/png/' + item.iconDay + '.png" /></p></div>';
+                strHtml += '<div class="item"><p>' + xs.date.week(item.fxDate) + '</p><p>星期</p></div>';
+                strHtml += '<div class="item"><p>' + item.windScaleDay + '<span class="margin-left-sm text-xs">(' + item.windSpeedDay + '公里/小时)</span></p><p>白天' + item.windDirDay + '</p></div>';
+                strHtml += '<div class="item"><p>' + item.windScaleNight + '<span class="margin-left-sm text-xs">(' + item.windSpeedNight + '公里/小时)</span></p><p>夜晚' + item.windDirNight + '</p></div>';
+                strHtml += '<div class="item"><p>' + item.humidity + '%</p><p>相对湿度</p></div>';
+                strHtml += '<div class="item"><p>' + item.uvIndex + '</p><p>紫外线</p></div>';
+                strHtml += '<div class="item"><p>' + item.tempMin + '&#176;-' + item.tempMax + '&#176;</p><p>体感温度&#8451;</p></div>';
+                strHtml += '<div class="item"><p>' + item.vis + 'km</p><p>能见度</p></div>';
+                strHtml += '<div class="item"><p>' + item.precip + 'mm</p><p>降水量</p></div>';
+                strHtml += '<div class="item"><p>' + item.pressure + 'hPa</p><p>大气压</p></div>';
+                strHtml += '</div>';
+            })
+            $('.qweather').html(strHtml);
+            $('#weatherTempMax').html(res.daily[0].tempMax + '&#8451;');
+            $('#weatherTextDay').html(res.daily[0].textDay);
+            $('#weatherDate').html(res.daily[0].fxDate);
+            $('#weatherHumidity').html(res.daily[0].humidity + '%');
+            $('#weatherUvindex').html(res.daily[0].uvIndex);
+            $('#weatherTemp').html(res.daily[0].tempMin + '&#176;-' + res.daily[0].tempMax + '&#176;');
+            $('#weatherVis').html(res.daily[0].vis + 'km');
+            $('#weatherPrecip').html(res.daily[0].precip + 'mm');
+            $('#weatherPressure').html(res.daily[0].pressure + 'hPa');
+            $('.weather-live-item img').attr('src', '/framework/lib/qweathe/png/' + res.daily[0].iconDay + '.png')
+            $('.weather-text').html('今天白天' + res.daily[0].textDay + '，夜晚' + res.daily[0].textNight + '，最低气温' + res.daily[0].tempMin + '&#8451;，最高气温' + res.daily[0].tempMax + '&#8451;');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Turn杂志翻书效果 - Xiaosong's Case</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="author" content="xiaosong<lianghaisong@qq.com">
+	<link rel="stylesheet" type="text/css" href="/framework/css/xs.css" />
+	<link rel="stylesheet" type="text/css" href="../style.css" />
+	<script type="text/javascript" src="/framework/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/framework/lib/jplayer/jquery.jplayer.min.js"></script>
+	<script type="text/javascript" src="/framework/lib/turn/zoom.min.js"></script>
+	<script type="text/javascript" src="/framework/lib/turn/turn.js"></script>
+</head>
+<body>
+	<div id="xs-app">
+		<div class="xs-header">
+			<div class="xs-header-left">
+				<a href="/"><img src="/framework/images/logo_white.png" class="logo"></a>
+			</div>
+			<div class="slogan"></div>
+			<div class="xs-header-right">
+				<div class="xs-header-nav">
+					<ul>
+						<li><a href="/">首页</a></li>
+						<li><a href="/pages/magazine/index.html">杂志</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="xs-pages">
+			<div class="xs-pages-left" xs-event="previous"></div>
+			<div class="xs-pages-right" xs-event="next"></div>
+			<div class="xs-pages-bottom">
+				<!-- <div class="audio"><audio id="audio" src="../sound/sound.mp3"></audio></div> -->
+				<!-- <div class="music"><audio id="music" src=""></audio></div> -->
+				<span xs-event="cover">封面</span>
+				<span xs-event="previous">上一页</span>
+				<span><em class="number">1</em> / <em class="total">0</em></span>
+				<span xs-event="next">下一页</span>
+				<span xs-event="coverBack">封底</span>
+				<span xs-event="audio"></span>
+			</div>
+
+			<!--turn dom-->
+			<div class="xs-pages-magazine">
+				<div class="magazine" id="flipbook">
+					<!-- <div class="hard"> Turn.js </div> -->
+					<!-- <div class="hard"></div> -->
+					<div class="page"><img src="../magazine/1.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/3.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/4.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/5.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/6.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/7.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/3.jpg" /><div class="loading"></div></div>
+					<div class="page"><img src="../magazine/2.jpg" /><div class="loading"></div></div>
+					<!-- <div class="hard"> Turn.js </div> -->
+					<!-- <div class="hard"></div> -->
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript" src="../magazine.js"></script>
+</body>
+</html>

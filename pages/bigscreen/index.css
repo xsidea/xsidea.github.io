@@ -1,0 +1,16 @@
+@media screen and (min-width: 3840px) {
+	/* 3840*1080 */
+	body {font-size: 12px;}
+}
+@media screen and (min-width: 1920px) {
+	/* 1920*1080 */
+	body {font-size: 12px;}
+}
+@media screen and (min-width: 1440px) {
+	/* 1440*900 */
+	body {font-size: 12px;}
+}
+@media screen and (max-width: 767px) {
+	/* mobile */
+	body {font-size: 12px;}
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 520px;
+            margin: 50px auto;
+        }
+
+        .box_btnBox {
+            width: 520px;
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .box_btnBox button {
+            padding: 5px 20px;
+        }
+
+        .box_imgBox {
+            width: 1020px;
+            height: 280px;
+            border: 10px solid red;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .imgsBox {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: absolute;
+        }
+
+        .box_imgBox img {
+            width: 500px;
+            height: 280px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box_btnBox">
+            <button class="leftBtn">向左</button>
+            <button class="rightBtn">向右</button>
+            <button class="stopBtn">暂停</button>
+            <button class="addSpeedBtn">加速</button>
+            <button class="subSpeedBtn">减速</button>
+            <button class="restoreBtn">速度还原</button>
+        </div>
+        <div class="box_imgBox">
+            <div class="imgsBox">
+                <div class="img"><img src="/framework/images/thumb/1.jpeg"></div>
+                <div class="img"><div class="img"></div><img src="/framework/images/thumb/2.jpeg"></div>
+                <img src="/framework/images/thumb/3.jpeg"></div>
+                <div class="img"></div><img src="/framework/images/thumb/4.jpeg"></div>
+                <div class="img"></div><img src="/framework/images/thumb/5.jpeg"></div>
+                <div class="img"></div><img src="/framework/images/thumb/6.jpeg"></div>
+                <div class="img"></div><img src="/framework/images/thumb/7.jpeg"></div>
+                <div class="img"></div><img src="/framework/images/thumb/8.jpeg"></div>
+                <div class="img"></div><img src="/framework/images/thumb/9.jpeg"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function ImgRoll(ele) {
+            this.box = document.querySelector('.' + ele)
+            // 获取按钮信息
+            this.leftBtn = this.box.querySelector('.leftBtn')
+            this.rightBtn = this.box.querySelector('.rightBtn')
+            this.stopBtn = this.box.querySelector('.stopBtn')
+            this.addBtn = this.box.querySelector('.addSpeedBtn')
+            this.subBtn = this.box.querySelector('.subSpeedBtn')
+            this.resBtn = this.box.querySelector('.restoreBtn')
+            // 获取图片容器
+            this.imgsBox = this.box.querySelector('.imgsBox')
+            // 获取图片宽
+            this.imgWidth = this.imgsBox.clientWidth / this.imgsBox.children.length
+            console.log(this.imgWidth);
+            // 初始速度
+            this.speed = 5
+            // 添加移动方向
+            this.direction = 'right'
+            // 添加定时器
+            this.timer = null
+            // 初始化无缝滚动
+            this.init()
+        }
+        ImgRoll.prototype.init = function () {
+            // 增加图片
+            this.addImg()
+            // 矫正图片位置
+            this.imgsBox.style.left = -this.imgWidth + 'px'
+            // 给按钮添加点击事件
+            // 向右移动
+            this.rightBtn.onclick = () => {
+                clearInterval(this.timer)
+                this.direction = 'right'
+                this.imgRun()
+            }
+            // 暂停
+            this.stopBtn.onclick = () => {
+                clearInterval(this.timer)
+            }
+            // 向左移动
+            this.leftBtn.onclick = () => {
+                clearInterval(this.timer)
+                this.direction = 'left'
+                this.imgRun()
+            }
+            // 速度增加
+            this.addBtn.onclick = () => {
+                this.speed++
+                if (this.speed >= 15) this.speed = 15
+            }
+            // 速度还原
+            this.resBtn.onclick = () => {
+                this.speed = 5
+            }
+            // 速度减慢
+            this.subBtn.onclick = () => {
+                this.speed--
+                if (this.speed <= 1) this.speed = 1
+            }
+        }
+        ImgRoll.prototype.addImg = function () {
+            // 克隆第一张和最后一张图片
+            const firstImg = this.imgsBox.children[0].cloneNode(true)
+            const lastImg = this.imgsBox.children[2].cloneNode(true)
+            // 将图片插入图片容器最前面和最后面
+            this.imgsBox.insertBefore(lastImg, this.imgsBox.children[0])
+            this.imgsBox.appendChild(firstImg)
+        }
+        ImgRoll.prototype.imgRun = function () {
+            this.timer = setInterval(() => {
+                //  获取当前left
+                let l = this.imgsBox.offsetLeft
+                if (this.direction === 'right') l += this.speed
+                else l -= this.speed
+                // 判断是否到第一张或最后一张
+
+                if (l <= -(this.imgsBox.children.length - 1) * this.imgWidth) {
+                    this.imgsBox.style.left = -this.imgWidth + 'px'
+                    return
+                } else {
+                    this.imgsBox.style.left = l + 'px'
+                }
+                if (l >= 0) {
+                    this.imgsBox.style.left = -(this.imgsBox.children.length - 2) * this.imgWidth + 'px'
+                    return
+                } else {
+                    this.imgsBox.style.left = l + 'px'
+                }
+            }, 20)
+        }
+
+        const imgRoll = new ImgRoll('box')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Xiaosong's Case</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="author" content="xiaosong<lianghaisong@qq.com">
+	<link rel="stylesheet" type="text/css" href="/framework/css/xs.css" />
+	<style>
+		.dplayer {
+			border-radius: 6px;
+		}
+
+		.dplayer-logo {
+			max-width: 120px !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="xs-app">
+		<div class="xs-header">
+			<div class="xs-header-left">
+				<a href="/"><img src="/framework/images/logo_white.png" class="logo"></a>
+			</div>
+			<div class="slogan"></div>
+			<div class="xs-header-right">
+				<div class="xs-header-nav">
+					<ul>
+						<li><a href="/">首页</a></li>
+						<li><a href="javascript:void(0);" id="ssq">双色球</a></li>
+						<li><a href="javascript:void(0);" id="dst">大乐透</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper">
+			<div class="xs-title">
+				<div class="xs-title-txt">双色球</div>
+				<div class="xs-desc">双色球直播</div>
+			</div>
+			<div class="dplayer" id="dplayer"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/framework/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/framework/lib//dplayer/hls.min.js"></script>
+	<script type="text/javascript" src="/framework/lib//dplayer/DPlayer.min.js"></script>
+	<script type="text/javascript" src="https://static.sporttery.cn/res_1_0/tcw/upload/webapi/pcLiveConfig.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: 'https://static.sporttery.cn/res_1_0/tcw/upload/webapi/pcLiveConfig.js', //
+			method: 'get', //
+			success: function(res) {
+				res = JSON.parse(res);
+				console.log(res);
+				const dp = new DPlayer({
+					container: document.getElementById('dplayer'),
+					logo: '/framework/images/logo.png', //
+					live: true,
+					autoplay: true, //视频自动播放
+					theme: '#b7daff', //主题色
+					loop: true, //视频循环播放
+					hotkey: true, //开启热键，支持快进、快退、音量控制、播放暂停
+					preload: 'auto', //视频预加载，可选值: 'none', 'metadata', 'auto'
+					volume: 0, //默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+					mutex: true, // 同一页面只能播放一个视频，默认为 true
+					video: {
+						url: res.play[0].path, 
+						// url:'https://livevideopull.lottery.gov.cn/live/lottery_PAL.m3u8',
+						// url: 'https://tv.cwl.gov.cn/channels/fckj/kjzb/m3u8:sd', //'/framework/video/wakawaka.mov',
+						pic: "/framework/images/kjzb.jpg", // 视频封面
+					}
+				});
+			}
+		})
+	</script>
+</body>
+</html>

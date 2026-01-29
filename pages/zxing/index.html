@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="author" content="xiaosong<lianghaisong@gmail.com">
+	<title>Zxing QRcode</title>
+	<link rel="stylesheet" href="style.css" />
+	<script type="text/javascript" src="zxing.min.js"></script>
+	<!-- <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script> -->
+</head>
+<body>
+	<div class="xs-header">
+		<div class="title">Scan QRcode</div>
+	</div>
+	<div class="xs-content">
+		<video class="video" id="video"></video>
+		<div class="result">
+			<div id="result"></div>
+		</div>
+		<!-- 选择摄像头 -->
+		<!-- <div id="sourceSelectPanel" style="display:none">
+			<label for="sourceSelect">Change video source:</label>
+			<select id="sourceSelect" style="max-width:400px">
+			</select>
+		</div> -->
+	</div>
+	<script type="text/javascript">
+		if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+			window.addEventListener('load', function() {
+				let selectedDeviceId;
+				const codeReader = new ZXing.BrowserMultiFormatReader()
+				console.log('初始化');
+				codeReader.listVideoInputDevices().then((videoInputDevices) => {
+					const sourceSelect = document.getElementById('sourceSelect');
+					// 判断有几个摄像头
+					if (videoInputDevices && videoInputDevices.length > 1) {
+						selectedDeviceId = videoInputDevices[1].deviceId; //后置
+					} else {
+						selectedDeviceId = videoInputDevices[0].deviceId; //前置
+					}
+					// if (videoInputDevices.length >= 1) {
+					// 	videoInputDevices.forEach((element) => {
+					// 		const sourceOption = document.createElement('option');
+					// 		sourceOption.text = element.label;
+					// 		sourceOption.value = element.deviceId;
+					// 		sourceSelect.appendChild(sourceOption);
+					// 	})
+
+					// 	sourceSelect.onchange = () => {
+					// 		selectedDeviceId = sourceSelect.value;
+					// 	};
+
+					// 	const sourceSelectPanel = document.getElementById('sourceSelectPanel');
+					// 	sourceSelectPanel.style.display = 'block';
+					// }
+
+					// document.getElementById('startButton').addEventListener('click', () => {
+					// 开始解码
+					codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
+						if (result) {
+							console.log(result);
+							document.getElementById('result').textContent = result.text;
+						}
+						if (err && !(err instanceof ZXing.NotFoundException)) {
+							console.error(err);
+							document.getElementById('result').textContent = err;
+						}
+					})
+					// console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
+					// })
+					// 重置
+					// codeReader.reset();
+
+				}).catch((err) => {
+					console.error(err);
+				})
+			})
+		} else {
+			console.error('当前浏览器不支持摄像头扫码，请更换浏览器或使用手机访问！');
+		}
+	</script>
+</body>
+</html>

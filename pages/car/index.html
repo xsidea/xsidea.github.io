@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery图片无缝滚动</title>
+	<meta charset="utf-8">
+	<style>
+		html,body{height: 100%;margin: 0;padding: 0}
+		.container {width: 100%;height: 100%;overflow: hidden;}
+		.wrapper {position: relative;width: 100%;height: 100%;}
+		.item {position: absolute;}
+		.item img {width: 200px;height: 100px;margin: 10px;border: 1px solid #ccc;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<div class="item">
+				<img src="/framework/images/thumb/1.jpeg">
+				<img src="/framework/images/thumb/2.jpeg">
+				<img src="/framework/images/thumb/3.jpeg">
+				<img src="/framework/images/thumb/4.jpeg">
+				<img src="/framework/images/thumb/13.jpeg">
+				<img src="/framework/images/thumb/14.jpeg">
+				<img src="/framework/images/thumb/15.jpeg">
+				<img src="/framework/images/thumb/16.jpeg">
+
+			</div>
+			<div class="item">
+				<img src="/framework/images/thumb/5.jpeg">
+				<img src="/framework/images/thumb/6.jpeg">
+				<img src="/framework/images/thumb/7.jpeg">
+				<img src="/framework/images/thumb/8.jpeg">
+				<img src="/framework/images/thumb/13.jpeg">
+				<img src="/framework/images/thumb/14.jpeg">
+				<img src="/framework/images/thumb/15.jpeg">
+				<img src="/framework/images/thumb/16.jpeg">
+
+			</div>
+			<div class="item">
+				<img src="/framework/images/thumb/9.jpeg">
+				<img src="/framework/images/thumb/10.jpeg">
+				<img src="/framework/images/thumb/11.jpeg">
+				<img src="/framework/images/thumb/12.jpeg">
+				<img src="/framework/images/thumb/13.jpeg">
+				<img src="/framework/images/thumb/14.jpeg">
+				<img src="/framework/images/thumb/15.jpeg">
+				<img src="/framework/images/thumb/16.jpeg">
+			</div>
+			<div class="item">
+				<img src="/framework/images/thumb/13.jpeg">
+				<img src="/framework/images/thumb/14.jpeg">
+				<img src="/framework/images/thumb/15.jpeg">
+				<img src="/framework/images/thumb/16.jpeg">
+				<img src="/framework/images/thumb/13.jpeg">
+				<img src="/framework/images/thumb/14.jpeg">
+				<img src="/framework/images/thumb/15.jpeg">
+				<img src="/framework/images/thumb/16.jpeg">
+			</div>
+		</div>
+	</div>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(function() {
+			// 每行每列的图片数量
+			var itemsPerRow = 5;
+			var itemsPerCol = 5;
+			// 获取元素
+			var $container = $('.container');
+			var $wrapper = $('.wrapper');
+			var $items = $('.item');
+			var $imgs = $('.item img');
+			// 计算元素宽度和高度
+			var itemWidth = $container.width() / itemsPerRow;
+			var itemHeight = $container.height() / itemsPerCol;
+			$items.css({
+				width: itemWidth * itemsPerRow,
+				height: itemHeight * itemsPerCol
+			});
+			$imgs.css({
+				width: itemWidth - 20, // 减去10px的左右margin
+				height: itemHeight - 20 // 减去10px的上下margin
+			});
+			// 水平滚动
+			function scrollHorizontally() {
+				$imgs.animate({
+					left: -itemWidth
+				}, 1000, function() {
+					$imgs.append($imgs.children().first());
+					$imgs.css('left', 0);
+					setTimeout(scrollHorizontally, 500);
+				});
+			}
+			// 垂直滚动
+			function scrollVertically() {
+				$wrapper.animate({
+					top: -itemHeight
+				}, 1000, function() {
+					$wrapper.append($wrapper.children().first());
+					$wrapper.css('top', 0);
+					setTimeout(scrollVertically, 3000);
+				});
+			}
+			// 启动滚动
+			if (itemsPerRow > itemsPerCol) {
+				scrollHorizontally();
+			} else {
+				scrollVertically();
+			}
+		});
+	</script>
+</body>
+</html>

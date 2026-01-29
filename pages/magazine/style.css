@@ -1,0 +1,180 @@
+em {
+	font-style: normal;
+}
+#xs-app {
+	height: 100%;
+}
+img {
+	-webkit-user-drag: none;
+}
+.user-select {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+.xs-magazine {
+	width: 800px;
+	margin: 80px auto 0px auto;
+	padding-bottom: 50px;
+}
+.xs-magazine .xs-magazine-item {
+	width: 800px;
+	height: 330px;
+	position: relative;
+}
+.xs-magazine .xs-magazine-item::after {
+	content: "";
+	width: 880px;
+	height: 230px;
+	background: url(images/bookshelf.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	display: block;
+	margin-left: -40px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+}
+.xs-magazine .xs-magazine-item ul {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: 10;
+}
+.xs-magazine .xs-magazine-item ul li {
+	margin: 0 15px;
+}
+.xs-magazine .xs-magazine-item ul li img {
+	width: 150px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*pages*/
+.xs-pages {
+	width: 100%;
+	height: calc(100% - 55px);
+	background-image: url(../magazine/images/bg_pink.jpg);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	position: relative;
+	user-select: none;
+}
+.xs-pages-left,
+.xs-pages-right {
+	width: 63px;
+	height: 160px;
+	position: absolute;
+	margin-top: -130px;
+	cursor: pointer;
+	z-index: 999;
+	transition: transform 200ms, -webkit-transform 200ms;
+}
+.xs-pages-left {
+	left: 0;
+	top: 50%;
+	background-image: url(../magazine/images/previous.png);
+}
+.xs-pages-right {
+	right: 0;
+	top: 50%;
+	background-image: url(../magazine/images/next.png);
+}
+.xs-pages-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .5);
+}
+.xs-pages-bottom span {
+	margin: 0 15px;
+	color: #ffffff;
+	cursor: pointer;
+}
+.xs-pages-magazine {
+	width: 1052px;
+	height: 720px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -385px;
+	margin-left: -525px;
+}
+.magazine {
+	width: 100%;
+	height: 100%;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+	/* -webkit-transition: margin-left 0.2s ease-in-out;
+	-moz-transition: margin-left 0.2s ease-in-out;
+	-o-transition: margin-left 0.2s ease-in-out;
+	-ms-transition: margin-left 0.2s ease-in-out;
+	transition: margin-left 0.2s ease-in-out; */
+	overflow: hidden;
+}
+
+.magazine .page-wrapper {
+	overflow: initial !important;
+	-webkit-perspective: 2000px;
+	-moz-perspective: 2000px;
+	-ms-perspective: 2000px;
+	perspective: 2000px;
+
+}
+/*
+.magazine .page{
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+}
+
+ 
+.magazine .page.even{
+	background:-webkit-gradient(linear, left top, right top, color-stop(0.95, #fff), color-stop(1, #dadada));
+	background-image:-webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-moz-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-ms-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:-o-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image:linear-gradient(left, #fff 95%, #dadada 100%);
+}
+
+.magazine .page.odd{
+	background:-webkit-gradient(linear, right top, left top, color-stop(0.95, #fff), color-stop(1, #cacaca));
+	background-image:-webkit-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-moz-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-ms-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:-o-linear-gradient(right, #fff 95%, #cacaca 100%);
+	background-image:linear-gradient(right, #fff 95%, #cacaca 100%);
+} 
+.magazine .page-wrapper:first-child::after {
+	content: '';
+	position: absolute;
+	left: -8px;
+	top: 0;
+	width: 8px;
+	height: 100%;
+	background-image: url(../magazine/images/cover_left.png);
+	background-size: cover;
+}
+.magazine .page-wrapper:last-child::after {
+	content: '';
+	position: absolute;
+	right: -8px;
+	top: 0;
+	width: 8px;
+	height: 100%;
+	background-image: url(../magazine/images/cover_right.png);
+	background-size: cover;
+}
+*/
+
+
+@media (max-width: 767px) {}

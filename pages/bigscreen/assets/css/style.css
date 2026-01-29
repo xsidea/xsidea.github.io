@@ -1,0 +1,7 @@
+* {margin: 0;padding: 0;box-sizing: border-box;}
+html, body {margin: 0;padding: 0;width: 100%;height: 100%;}
+body {font-family: "Microsoft YaHei", "微软雅黑", "Arial", "Helvetica"}
+img {object-fit: cover}
+.xs-app{width: 100%; height: 100%;position: relative;}
+.xs-video{width: 100%; height: 100%; position: absolute;top: 0;left: 0;z-index: 1;background-color: #191108;}
+.xs-video video{width: 100%;height: 100%;}

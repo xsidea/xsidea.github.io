@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Ace Editor - Xiaosong's Case</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="author" content="xiaosong<lianghaisong@qq.com">
+	<link rel="stylesheet" type="text/css" href="/framework//lib/prettify/prettify.css" />
+	<link rel="stylesheet" type="text/css" href="/framework/lib/layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="/framework/css/xs.css" />
+	<link rel="stylesheet" type="text/css" href="common.css" />
+</head>
+<body>
+
+	<div id="xs-app">
+		<div class="xs-header">
+			<div class="xs-header-left">
+				<a href="/"><img src="/framework/images/logo_white.png" class="logo"></a>
+			</div>
+			<div class="slogan">常用JS函数</div>
+			<div class="xs-header-right">
+				<div class="xs-header-nav">
+					<ul>
+						<li><a href="/">首页</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="layout">
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<ul class="layui-menu">
+						<li>
+							<div class="layui-menu-body-title">menu item 1</div>
+						</li>
+						<li>
+							<div class="layui-menu-body-title">
+								<a href="#">menu item 2</a>
+							</div>
+						</li>
+
+						<li class="layui-menu-item-group layui-menu-item-down">
+							<div class="layui-menu-body-title">
+								<div class="layui-menu-body-title">字符串函数</div><i class="layui-icon layui-icon-up"></i>
+							</div>
+							<ul>
+								<li>
+									<div class="layui-menu-body-title">截取字符</div>
+								</li>
+								<li>
+									<div class="layui-menu-body-title">删除所有空格</div>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<div class="layui-menu-body-title">menu item 4</div>
+						</li>
+						<li class="layui-menu-item-parent">
+							<div class="layui-menu-body-title">
+								menu item 5
+								<i class="layui-icon layui-icon-right"></i>
+							</div>
+							<div class="layui-panel layui-menu-body-panel">
+								<ul>
+									<li>
+										<div class="layui-menu-body-title">menu item 5-1</div>
+									</li>
+									<li>
+										<div class="layui-menu-body-title">menu item 5-2</div>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="layui-menu-body-title">menu item 6</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="layui-body  padding-lr">
+
+
+
+				<div class="layui-tab">
+					<ul class="layui-tab-title">
+						<li class="layui-this">代码</li>
+						<li>预览</li>
+					</ul>
+					<div class="layui-tab-content padding-lr">
+						<div class="layui-tab-item layui-show" id="code">
+							<div class="prediv jsondiv">
+								<textarea class="prejson">{&quot;sum&quot;:&quot;2&quot;,&quot;shopCount&quot;:&quot;24&quot;,&quot;shopList&quot;:[{&quot;CartId&quot;:&quot;488&quot;,&quot;commodityId&quot;:&quot;10&quot;,&quot;CartImg&quot;:&quot;http://www.domain.com/images.jpg&quot;,&quot;CommodityName&quot;:&quot;商品名称&quot;,&quot;commodityLink&quot;:&quot;http://www.domain.com/channel/content.aspx?id=10&quot;,&quot;CommodityProperty&quot;:&quot;商品属性&quot;,&quot;CommodityNumber&quot;:&quot;23&quot;,&quot;CartListID&quot;:&quot;0101900000100&quot;,&quot;CommodityXPrice&quot;:&quot;1800&quot;,&quot;CommodityYhPrice&quot;:&quot;0&quot;,&quot;CommodityZPrice&quot;:&quot;41400&quot;},{&quot;CartId&quot;:&quot;489&quot;,&quot;commodityId&quot;:&quot;2&quot;,&quot;CartImg&quot;:&quot;http://www.domain.com/images.jpg&quot;,&quot;CommodityName&quot;:&quot;商品名称&quot;,&quot;commodityLink&quot;:&quot;http://www.domain.com/channel/content.aspx?id=2&quot;,&quot;CommodityProperty&quot;:&quot;商品属性&quot;,&quot;CommodityNumber&quot;:&quot;1&quot;,&quot;CartListID&quot;:&quot;0101900000099&quot;,&quot;CommodityXPrice&quot;:&quot;8800&quot;,&quot;CommodityYhPrice&quot;:&quot;0&quot;,&quot;CommodityZPrice&quot;:&quot;8800&quot;}],&quot;totalPrice&quot;:&quot;50200&quot;,&quot;totalZkPrice&quot;:&quot;0&quot;,&quot;totalKdYfPrice&quot;:&quot;250&quot;,&quot;totalEmsYfPrice&quot;:&quot;370&quot;,&quot;totalPyYfPrice&quot;:&quot;196&quot;,&quot;totalZongPrice&quot;:&quot;50200&quot;,&quot;PaymentSum&quot;:&quot;5&quot;,&quot;PaymentTypeList&quot;:[{&quot;PaymentId&quot;:&quot;58&quot;,&quot;PaymentDefault&quot;:&quot;1&quot;,&quot;PaymentName&quot;:&quot;平台支付&quot;,&quot;PaymentExplain&quot;:&quot;平台内充值后用平台余额支付订单。&quot;,&quot;PaymentRange&quot;:&quot;PC,手机,微信&quot;},{&quot;PaymentId&quot;:&quot;62&quot;,&quot;PaymentDefault&quot;:&quot;0&quot;,&quot;PaymentName&quot;:&quot;支付宝&quot;,&quot;PaymentExplain&quot;:&quot; 支付宝是全球领先的第三方支付平台&quot;,&quot;PaymentRange&quot;:&quot;PC,手机&quot;},{&quot;PaymentId&quot;:&quot;63&quot;,&quot;PaymentDefault&quot;:&quot;0&quot;,&quot;PaymentName&quot;:&quot;微信支付&quot;,&quot;PaymentExplain&quot;:&quot;微信支付&quot;,&quot;PaymentRange&quot;:&quot;PC,微信&quot;}],&quot;InvoiceStatus&quot;:&quot;1&quot;}</textarea>
+							</div>
+							<div class="precode">
+
+							</div>
+
+						</div>
+						<div class="layui-tab-item" id="view">
+							<pre class="layui-code">
+
+
+<script>
+    // tips
+    tips: function (options) {
+        var defaults = {
+            ele: '[xs-tips]',
+        };
+        var opts = Object.assign({}, defaults, options);
+        $(opts.ele).each(function (k, v) {
+            var index = null;
+            var title = $(v).attr('xs-tips')
+            $(v).hover(function () {
+                index = layer.tips(title, $(v), {
+                    tips: [1, '#000000'],
+                    time: 4000
+                });
+            }, function () {
+                layer.close(index)
+            });
+
+
+        })
+    },
+</script>
+</pre>
+
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+
+	</div>
+	<script type="text/javascript" src="/framework/lib/layui/layui.js"></script>
+	<script type="text/javascript" src="/framework/lib/prettify/run_prettify.js"></script>
+	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		layui.use(['jquery', 'util', 'element', 'code'], function() {
+			var $ = layui.$;
+			var util = layui.util;
+			var element = layui.element;
+
+			layui.code({
+				elem: '.layui-code',
+				title: 'HTML',
+				encode: true, // 是否转义 html 标签，默认：false
+				ln: true, // 是否显示行号。默认：true 
+			})
+			// var code = document.getElementById('code').innerHTML;
+			//var formattedHtml = HTMLFormat($('#view').html());
+			// console.log(formattedHtml);
+			//$('#view').html(formattedHtml);
+		});
+	</script>
+</body>
+</html>

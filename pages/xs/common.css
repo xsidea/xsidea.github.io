@@ -1,0 +1,64 @@
+.xs-header {
+	background-color: #1890ff;
+}
+
+.xs-header-nav a {
+	color: #ffffff;
+}
+
+.layui-side {
+	top: 55px;
+	background-color: #f9f9f9 !important;
+	border-right: 1px #e4e4e4 solid;
+}
+
+.layui-body {
+	position: fixed;
+	top: 55px;
+}
+
+.layui-menu {
+	width: calc(100% - 22px);
+	background-color: transparent;
+}
+
+.layui-menu .layui-menu-item-checked,
+.layui-menu .layui-menu-item-checked2 {
+	color: #1890ff;
+}
+
+.layui-menu .layui-menu-item-checked a,
+.layui-menu .layui-menu-item-checked2 a {
+	color: #1890ff;
+}
+
+.layui-menu .layui-menu-item-checked:after {
+	border-right: 0px solid #1890ff;
+}
+
+.layui-tab .layui-tab-title li.layui-this {
+	background-color: #ffffff;
+}
+
+.layui-tab-content {
+	background-color: #ffffff;
+	border: 1px #e4e4e4 solid;
+	border-top: 0;
+}
+
+/*Pre*/
+.prediv textarea{ display:none}
+.prediv pre {padding: 20px;margin: 10px 0;overflow: hidden; border: 1px solid #eeeeee; background: #f7f7f9; border-radius: 4px; color: #666; white-space: pre; line-height: 16px; display: block; overflow: hidden; }
+.prediv .prettyprint.linenums{box-shadow:inset 40px 0 0 #fbfbfc,inset 41px 0 0 #ececf0}
+.prediv .prettyprint ol.linenums{list-style:decimal outside none; margin-left:20px}
+.prediv .prettyprint ol.linenums li{list-style:decimal outside none;padding-left:12px;color:#bbb;line-height:18px;text-shadow:0 1px 0 #fff}.
+.prediv .prettyprint .com { color: #998;font-style:italic }/*注释*/
+.prediv .prettyprint .tag{color:#007}/*标签*/
+.prediv .prettyprint .lit { color: #195f91}
+.prediv .prettyprint .pun,.prettyprint .opn,.prettyprint .clo { color: #93a1a1}/*等于*/
+.prediv .prettyprint .fun { color: #dc322f}
+.prediv .prettyprint .str,.prettyprint .atv { color: #D14}/*值*/
+.prediv .prettyprint .kwd,.prettyprint .prettyprint .tag { color: #1e347b}
+.prediv .prettyprint .typ,.prettyprint .atn,.prettyprint .dec,.prettyprint .var { color: teal}/*文档声明，属性*/
+.prediv .prettyprint .pln { color: #48484c}
+.prediv .prettyprint li.L1,.prediv .prettyprint li.L3,.prediv .prettyprint li.L5,.prediv .prettyprint li.L7,.prediv .prettyprint li.L9 {background: none;}

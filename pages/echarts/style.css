@@ -1,0 +1,117 @@
+.amap-logo,
+.amap-copyright {
+	display: none !important;
+}
+.xs-map {
+	display: flex;
+	width: 100%;
+	height: calc(100% - 55px);
+	overflow: hidden;
+}
+.xs-map .map {
+	width: 0;
+	flex: 1;
+	overflow: hidden;
+}
+
+
+.xs-map .echarts {
+	width: 0;
+	flex: 1;
+	overflow: hidden;
+}
+
+.xs-map .search {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border-radius: 6px;
+	box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+	flex: 1 1 auto;
+	padding: 15px;
+
+	position: fixed;
+	top: 65px;
+	left: 10px;
+	width: 270px;
+	height: 350px;
+	z-index: 999999;
+}
+.xs-map .search h5 {
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+.input-item {
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	height: 35px;
+	margin-bottom: 15px;
+}
+
+.input-item:last-child {
+	margin-bottom: 0;
+}
+
+.input-item>select, .input-item>input[type=text], .input-item>input[type=date] {
+	position: relative;
+	-ms-flex: 1 1 auto;
+	flex: 1 1 auto;
+	width: 1%;
+	border: 1px solid #ced4da;
+	margin-bottom: 0;
+}
+
+.input-item>select:not(:last-child), .input-item>input[type=text]:not(:last-child), .input-item>input[type=date]:not(:last-child) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0
+}
+
+.input-item>select:not(:first-child), .input-item>input[type=text]:not(:first-child), .input-item>input[type=date]:not(:first-child) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0
+}
+
+.input-item-prepend {
+	margin-right: -1px;
+}
+
+.input-item-text, input[type=text], input[type=date], select {
+	height: 35px;
+}
+
+.input-item-text {
+	width: 60px;
+	height: 35px;
+	padding: 0px 10px;
+	display: inline-block;
+
+	/*ie6-8*/
+	text-align-last: justify;
+	/* ie9*/
+
+	/*ff*/
+
+	/*chrome 20+*/
+	align-items: center;
+	line-height: 35px;
+	color: #495057;
+	white-space: nowrap;
+	background-color: #e9ecef;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.input-item-text input[type=checkbox], .input-item-text input[type=radio] {
+	margin-top: 0
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<title>Xiaosong's Case</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta name="author" content="xiaosong<lianghaisong@qq.com">
+	<link rel="stylesheet" type="text/css" href="/framework/css/xs.css" />
+	<link rel="stylesheet" type="text/css" href="/framework/lib/aplayer/APlayer.min.css" />
+	<style>
+		.dplayer {
+			border-radius: 6px;
+		}
+
+		.dplayer-logo {
+			max-width: 120px !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="xs-app">
+		<div class="xs-header">
+			<div class="xs-header-left">
+				<a href="/"><img src="/framework/images/logo_white.png" class="logo"></a>
+			</div>
+			<div class="slogan"></div>
+			<div class="xs-header-right">
+				<div class="xs-header-nav">
+					<ul>
+						<li><a href="/">首页</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper">
+			<div class="xs-title">
+				<div class="xs-title-txt">APlayer</div>
+				<div class="xs-desc">APlayer 音频频播放器</div>
+			</div>
+			<div id="aplayer" ></div>
+		</div>
+		<!--options-->
+		<div class="wrapper">
+			<div class="title">Options</div>
+			<table class="table margin-tb table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Default</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>container</td>
+						<td>document.querySelector('.aplayer')</td>
+						<td>player container</td>
+					</tr>
+					<tr>
+						<td>fixed</td>
+						<td>false</td>
+						<td>enable fixed mode, <a href="https://aplayer.js.org/#/home?id=fixed-mode" target="_blank">see more details</a></td>
+					</tr>
+					<tr>
+						<td>mini</td>
+						<td>false</td>
+						<td>enable mini mode, <a href="https://aplayer.js.org/#/home?id=mini-mode" target="_blank">see more details</a></td>
+					</tr>
+					<tr>
+						<td>autoplay</td>
+						<td>false</td>
+						<td>audio autoplay</td>
+					</tr>
+					<tr>
+						<td>theme</td>
+						<td>'#b7daff'</td>
+						<td>main color</td>
+					</tr>
+					<tr>
+						<td>loop</td>
+						<td>'all'</td>
+						<td>player loop play, values: 'all', 'one', 'none'</td>
+					</tr>
+					<tr>
+						<td>order</td>
+						<td>'list'</td>
+						<td>player play order, values: 'list', 'random'</td>
+					</tr>
+					<tr>
+						<td>preload</td>
+						<td>'auto'</td>
+						<td>values: 'none', 'metadata', 'auto'</td>
+					</tr>
+					<tr>
+						<td>volume</td>
+						<td>0.7</td>
+						<td>default volume, notice that player will remember user setting, default volume will not work after user set volume themselves</td>
+					</tr>
+					<tr>
+						<td>audio</td>
+						<td>-</td>
+						<td>audio info, should be an object or object array</td>
+					</tr>
+					<tr>
+						<td>audio.name</td>
+						<td>-</td>
+						<td>audio name</td>
+					</tr>
+					<tr>
+						<td>audio.artist</td>
+						<td>-</td>
+						<td>audio artist</td>
+					</tr>
+					<tr>
+						<td>audio.url</td>
+						<td>-</td>
+						<td>audio url</td>
+					</tr>
+					<tr>
+						<td>audio.cover</td>
+						<td>-</td>
+						<td>audio cover</td>
+					</tr>
+					<tr>
+						<td>audio.lrc</td>
+						<td>-</td>
+						<td><a href="https://aplayer.js.org/#/home?id=lrc" target="_blank">see more details</a></td>
+					</tr>
+					<tr>
+						<td>audio.theme</td>
+						<td>-</td>
+						<td>main color when switching to this audio, it has priority over the above theme</td>
+					</tr>
+					<tr>
+						<td>audio.type</td>
+						<td>'auto'</td>
+						<td>values: 'auto', 'hls', 'normal' or other custom type, <a href="https://aplayer.js.org/#/home?id=mse-support" target="_blank">see more details</a></td>
+					</tr>
+					<tr>
+						<td>customAudioType</td>
+						<td>-</td>
+						<td><a href="https://aplayer.js.org/#/home?id=mse-support" target="_blank">see more details</a></td>
+					</tr>
+					<tr>
+						<td>mutex</td>
+						<td>true</td>
+						<td>prevent to play multiple player at the same time, pause other players when this player start play</td>
+					</tr>
+					<tr>
+						<td>lrcType</td>
+						<td>0</td>
+						<td><a href="https://aplayer.js.org/#/home?id=lrc" target="_blank">see more details</a></td>
+					</tr>
+					<tr>
+						<td>listFolded</td>
+						<td>false</td>
+						<td>indicate whether list should folded at first</td>
+					</tr>
+					<tr>
+						<td>listMaxHeight</td>
+						<td>-</td>
+						<td>list max height</td>
+					</tr>
+					<tr>
+						<td>storageName</td>
+						<td>'aplayer-setting'</td>
+						<td>localStorage key that store player setting</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--help-->
+		<div class="wrapper">
+			<div class="title">Api</div>
+			<table class="table margin-tb table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Demo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>APlayer.version</td>
+						<td>static property, return the version of APlayer</td>
+						<td>-</td>
+					</tr>
+					<tr>
+						<td>ap.play()</td>
+						<td>play audio</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.pause()</td>
+						<td>pause audio</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.seek(time: number)</td>
+						<td>seek to specified time, the unit of time is second</td>
+						<td>ap.seek(100);</td>
+					</tr>
+					<tr>
+						<td>ap.toggle()</td>
+						<td>toggle between play and pause</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.on(event: string, handler: function)</td>
+						<td>bind audio and player events, <a href="https://aplayer.js.org/#/home?id=event-binding" target="_blank">see more details</a></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.volume(percentage: number, nostorage: boolean)</td>
+						<td>set audio volume</td>
+						<td>ap.volume(0.1, true);</td>
+					</tr>
+					<tr>
+						<td>ap.theme(color: string, index: number)</td>
+						<td>set player theme, the default of index is current audio index</td>
+						<td>ap.theme('#000', 0);</td>
+					</tr>
+					<tr>
+						<td>ap.setMode(mode: string)</td>
+						<td>set player mode, the value of mode should be 'mini' or 'normal'</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.mode</td>
+						<td>return current player mode, 'mini' or 'normal'</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.notice(text: string, time: number, opacity: number)</td>
+						<td>show message</td>
+						<td>ap.notice('Amazing player', 2000, 0.8);</td>
+					</tr>
+					<tr>
+						<td>ap.skipBack()</td>
+						<td>skip to previous audio</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.skipForward()</td>
+						<td>skip to next audio</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.destroy()</td>
+						<td>destroy player</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><strong>ap.lrc</strong></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.lrc.show()</td>
+						<td>show lrc</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.lrc.hide()</td>
+						<td>hide lrc</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.lrc.toggle()</td>
+						<td>toggle lrc between show and hide</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><strong>ap.list</strong></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.list.show()</td>
+						<td>show list</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.list.hide()</td>
+						<td>hide list</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.list.toggle()</td>
+						<td>toggle list between show and hide</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.list.add(audios: array | object)</td>
+						<td>add new audios to the list</td>
+						<td>ap.list.add([{
+							name: 'name',
+							artist: 'artist',
+							url: 'url.mp3',
+							cover: 'cover.jpg',
+							lrc: 'lrc.lrc',
+							theme: '#ebd0c2'
+							}]);</td>
+					</tr>
+					<tr>
+						<td>ap.list.remove(index: number)</td>
+						<td> remove an audio from the list</td>
+						<td>ap.list.remove(1);</td>
+					</tr>
+					<tr>
+						<td>ap.list.switch()</td>
+						<td>switch to an audio in the list</td>
+						<td>ap.list.switch(1);</td>
+					</tr>
+					<tr>
+						<td>ap.list.clear()</td>
+						<td>remove all audios from the list</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td><strong>ap.audio</strong></td>
+						<td>native audio</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.audio.currentTime</td>
+						<td> returns the current playback position</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.audio.duration</td>
+						<td>returns audio total time</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>ap.audio.paused</td>
+						<td>returns whether the audio paused</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+	</div>
+	<script type="text/javascript" src="/framework/lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/framework/lib/aplayer/APlayer.min.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: 'https://api.i-meto.com/meting/api?server=netease&type=playlist&id=60198&r=0.507317768008724',
+			method: 'GET',
+			success: function(res) {
+				const ap = new APlayer({
+					container: document.getElementById('aplayer'),
+					fixed:false,//开启吸底模式
+					mini: false,//开启迷你模式
+					autoplay: false,//音频自动播放
+					theme: '#FADFA3',//主题色
+					loop: 'all',//音频循环播放, 可选值: 'all', 'one', 'none'
+					order: 'list',//音频循环顺序, 可选值: 'list', 'random'
+					preload: 'auto',//预加载，可选值: 'none', 'metadata', 'auto'
+					volume: 0.7,//默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+					mutex: true,//互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+					listFolded: false,//列表默认折叠
+					listMaxHeight: '330px',//列表最大高度
+					lrcType: 3,
+					audio: res,//音频信息, 应该是一个对象或对象数组
+					// audio.name	-	音频名称
+					// audio.artist	-	音频艺术家
+					// audio.url	-	音频链接
+					// audio.cover	-	音频封面
+					// audio.lrc	-	详情
+					// audio.theme	-	切换到此音频时的主题色，比上面的 theme 优先级高
+					// audio.type	'auto'	可选值: 'auto', 'hls', 'normal' 或其他自定义类型, 详情
+				});
+			}
+		})
+	</script>
+</body>
+</html>
